@@ -1,0 +1,22 @@
+PREAMBLE
+WHEREAS in adopting the Independence Constitution of Tuvalu the people of Tuvalu provided in the Preamble to it as follows: —
+"WHEREAS the Islands in the Pacific Ocean then known as the Ellice Islands came under the protection of Her Most Gracious Majesty Queen Victoria in September 1892 and on 12 January 1916 in conjunction with the Gilbert Islands became known as the Gilbert and Ellice Islands Colony;
+"AND WHEREAS on 1 October 1975 Her Most Excellent Majesty Queen Elizabeth II was graciously pleased to establish the Ellice Islands as a separate colony under their ancient name of Tuvalu;
+"AND WHEREAS the people of Tuvalu, acknowledging God as the Almighty and Everlasting Lord and giver of all good things, humbly place themselves under His good providence and seek His blessing upon themselves and their lives;
+"AND WHEREAS the people of Tuvalu desire to constitute themselves as an independent State based on Christian principles, the Rule of Law, and Tuvaluan custom and tradition;
+"NOW THEREFORE the people of Tuvalu hereby affirm their allegiance to Her Most Excellent Majesty Queen Elizabeth II, Her Heirs and Successors, and do hereby proclaim the establishment of a free and democratic sovereign nation.................";
+AND WHEREAS the Constitution then adopted, which was given the force of law by Order in Council of Her Most Excellent Majesty dated 25 July 1978 and taking effect on 1 October 1978, provided for its amendment or replacement by Ordinance of the Parliament established by it for Tuvalu;
+AND WHEREAS that Constitution has served the people of Tuvalu well since Independence but now, more than seven years since its adoption, it is time that the people of Tuvalu reconsidered it in the light of their history and their present and future needs as they see them;
+NOW THEREFORE, the people of Tuvalu, having considered, as individuals, in their maneapas and island councils, and in their Parliament, what should be in their constitution, give to themselves the following Constitution:
+IN SO DOING, the people of Tuvalu set out for themselves and for their governmental institutions, the following Principles: —
+PRINCIPLES OF THE CONSTITUTION
+1. The principles set out in the Preamble to the Independence Constitution are re-affirmed and re-adopted.
+2. The right of the people of Tuvalu, both present and future, to a full, free and happy life, and to moral, spiritual, personal and material welfare, is affirmed as one given to them by God.
+3. While believing that Tuvalu must take its rightful place amongst the community of nations in search of peace and the general welfare, nevertheless the people of Tuvalu recognize and affirm, with gratitude to God, that the stability of Tuvaluan society and the happiness and welfare of the people of Tuvalu, both present and future, depend very largely on the maintenance of Tuvaluan values, culture and tradition, including the vitality and the sense of identity of island communities and attitudes of co-operation, self-help and unity within and amongst those communities.
+4. Amongst the values that the people of Tuvalu seek to maintain are their traditional forms of communities, the strength and support of the family and family discipline.
+5. In government, and in social affairs generally, the guiding principles of Tuvalu are —
+agreement, courtesy and the search for consensus, in accordance with traditional Tuvaluan procedures, rather than alien ideas of confrontation and divisiveness;
+the need for mutual respect and co-operation between the different kinds of authorities concerned, including the central Government, the traditional authorities, local governments and authorities, and the religious authorities.
+6. The life and the laws of Tuvalu should therefore be based on respect for human dignity, and on the acceptance of Tuvaluan values and culture, and on respect for them.
+7. Nevertheless, the people of Tuvalu recognize that in a changing world, and with changing needs, these principles and values, and the manner and form of their expression (especially in legal and administrative matters), will gradually change, and the Constitution not only must recognize their fundamental importance to the life of Tuvalu but also must not unnecessarily hamper their expression and their development.
+THESE PRINCIPLES, under the guidance of God, are solemnly adopted and affirmed as the basis of this Constitution, and as the guiding principles to be observed in its interpretation and application at all levels of government and organized life.
