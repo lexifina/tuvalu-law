@@ -1,0 +1,25 @@
+{
+ "country": "TV",
+ "acts": [
+  {
+   "slug": "constitution",
+   "short": "Const",
+   "title": "The Constitution of Tuvalu",
+   "url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/1986/1986-0001/1986-0001_3.pdf",
+   "versions": [
+    {
+     "from": "2007-08-03",
+     "units": 215,
+     "source_url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/1986/1986-0001/1986-0001_1.pdf",
+     "sha256": "9b4dce138389753af17e9a9eeebbe7e8338b21444935e6ba2eff9f0094915053"
+    },
+    {
+     "from": "2023-10-01",
+     "units": 224,
+     "source_url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/1986/1986-0001/1986-0001_3.pdf",
+     "sha256": "d038adb6a6c44a91264bd22ca391f16f9f3cdba3e76a2ab99e004318adba184b"
+    }
+   ]
+  }
+ ]
+}
