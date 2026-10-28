@@ -142,7 +142,11 @@ def read(path: str) -> Doc:
     lines: list[Line] = []
     start = end = None
     title = ''
-    for pno in range(d.page_count):
+    toc_last = -1
+    for pno in range(min(d.page_count, 40)):
+        if 'Arrangement of Sections' in d[pno].get_text():
+            toc_last = pno
+    for pno in range(toc_last + 1, d.page_count):
         pl = page_lines(d[pno], pno)
         if start is None:
             t = [l for l in pl if l.size >= 15 and l.bold]
