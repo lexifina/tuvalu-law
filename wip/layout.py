@@ -129,6 +129,7 @@ class Doc:
 
 
 SEC = re.compile(r'^(\d+)([A-Z]{0,3})$')
+SEC1 = re.compile(r'^(\d+)([A-Z]{0,3})\s+([A-Z"].*)$')
 MARK = re.compile(r'^(\(\s*[0-9a-zA-Z]{1,6}\s*\)|\d+[A-Z]?\.)(\s|$)')
 STUB = re.compile(r'^(\d+)([A-Z]{0,3})\s*(?:-\s*)?\[?\s*((?:Repealed|repealed|Revoked|revoked|Omitted|omitted|Spent|spent)\b.*)$')
 
@@ -174,7 +175,10 @@ def read(path: str) -> Doc:
     cur = None
     for l in endnote_lines:
         m = re.match(r'^(\d+)\s+(.*)$', l.text)
-        if m and l.x < 90 and (cur is None or int(m.group(1)) == cur + 1):
+        if l.fns and l.x < 60 and (cur is None or l.fns[0] == cur + 1):
+            cur = l.fns[0]
+            endnotes[cur] = l.text
+        elif m and l.x < 90 and (cur is None or int(m.group(1)) == cur + 1):
             cur = int(m.group(1))
             endnotes[cur] = m.group(2)
         elif re.match(r'^\d+$', l.text) and l.x < 90 and (cur is None or int(l.text) == cur + 1):
@@ -240,8 +244,8 @@ def read(path: str) -> Doc:
                 new_unit(Unit(f'part-{part_no:02d}', f'Part {m_part.group(1)}', 'heading', paras=[l.text], fns=list(l.fns)))
                 prev = l
                 continue
-            m_div = re.match(r'^DIVISION\s+([IVXLC]+|\d+)\b', l.text, re.I)
-            if m_div and not l.bold and l.x > 120 and part_no is not None:
+            m_div = re.match(r'^DIVISION\s+([IVXLC]+|\d+)\b', l.text)
+            if m_div and not l.bold and l.x > 120 and part_no is not None and l.text == l.text.upper():
                 dn = num(m_div.group(1))
                 new_unit(Unit(f'part-{part_no:02d}-div-{dn:02d}', f'Part {part_no}, Division {m_div.group(1)}', 'heading',
                               paras=[l.text], fns=list(l.fns)))
@@ -249,9 +253,13 @@ def read(path: str) -> Doc:
                 continue
             # section heading: bold number at the margin, bold heading after it
             m_sec = SEC.match(l.lead_bold) if l.lead_bold and l.x < 92 else None
-            if m_sec and l.size < 12.5 and (l.rest_bold or l.text == l.lead_bold):
+            one = None
+            if not m_sec and l.lead_bold and l.x < 92 and l.text == l.lead_bold:
+                one = SEC1.match(l.lead_bold)  # number and heading in one bold span
+                m_sec = one
+            if m_sec and l.size < 12.5 and (one or l.rest_bold or l.text == l.lead_bold):
                 key = sec_key(m_sec.group(1), m_sec.group(2))
-                head = l.text[len(l.lead_bold):].strip()
+                head = (one.group(3) if one else l.text[len(l.lead_bold):]).strip()
                 new_unit(Unit(key, f's. {m_sec.group(1)}{m_sec.group(2)}', 'section', heading=head, fns=list(l.fns)))
                 title_cont = True
                 prev = l
