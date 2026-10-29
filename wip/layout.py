@@ -175,7 +175,7 @@ def read(path: str) -> Doc:
     cur = None
     for l in endnote_lines:
         m = re.match(r'^(\d+)\s+(.*)$', l.text)
-        if l.fns and l.x < 60 and (cur is None or l.fns[0] == cur + 1):
+        if l.fns and l.x < 100 and (cur is None or l.fns[0] == cur + 1):
             cur = l.fns[0]
             endnotes[cur] = l.text
         elif m and l.x < 90 and (cur is None or int(m.group(1)) == cur + 1):
