@@ -22,6 +22,11 @@ def version(url: str, frm: str, credit: list[str] | None, prev: dict | None) -> 
     p = fetch.path_for(url)
     doc = layout.read(str(p))
     units = {u.key: {'label': u.label, 'kind': u.kind, 'text': layout.unit_text(u)} for u in doc.units}
+    # Official table row for points 180-181 is a merged-range cell; the text layer interleaves its columns.
+    bad = 'TVBP00180- 6°06\'05.60" S- 177°20\'14.42" E- TS,CZ TS,CZ TVBP00181 6°06\'05.52" S 177°20\'12.80" E'
+    good = 'TVBP00180-TVBP00181 6°06\'05.60" S-6°06\'05.52" S 177°20\'14.42" E-177°20\'12.80" E TS,CZ'
+    for u in units.values():
+        u['text'] = u['text'].replace(bad, good)
     v = {'from': frm, 'source_url': url, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'units': units, 'credits': {}}
     if prev is not None and credit:
         for k in sorted(set(units) | set(prev['units'])):
