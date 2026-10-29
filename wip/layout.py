@@ -270,7 +270,8 @@ def read(path: str) -> Doc:
                 new_unit(Unit(key, f's. {m_stub.group(1)}{m_stub.group(2)}', 'section', paras=[l.text], fns=list(l.fns)))
                 prev = l
                 continue
-            if title_cont and cur_u is not None and l.bold and l.x >= 100 and l.size < 12.5 and prev and l.page == prev.page and l.y - prev.y < 15:
+            if (title_cont and cur_u is not None and l.bold and l.x >= 95 and l.size < 12.5 and prev
+                    and not MARK.match(l.text) and (l.page != prev.page or l.y - prev.y < 20)):
                 cur_u.heading = (cur_u.heading + ' ' + l.text).strip()
                 cur_u.fns.extend(l.fns)
                 prev = l
@@ -305,6 +306,8 @@ def starts_paragraph(prev: Line | None, l: Line, last_para: str) -> bool:
     if l.bold and not prev.bold:
         return True
     if MARK.match(l.text):
+        return True
+    if l.x < prev.x - 10:  # outdented tail ("is guilty of ...") after a list item
         return True
     if prev.page == l.page:
         return l.y - prev.y > 15.5
