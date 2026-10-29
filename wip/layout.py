@@ -287,13 +287,28 @@ def read(path: str) -> Doc:
             else:
                 # body text right after a heading with no section: keep it in the heading unit
                 pass
-        force = (prev is None or prev.page != l.page and bool(MARK.match(l.text))
-                 or (prev.page == l.page and (l.y - prev.y > 15.5 or bool(MARK.match(l.text))))
-                 or (prev.page != l.page and prev is not None and abs(l.x - prev.x) > 2.5 and l.x < prev.x)
-                 or (prev is not None and prev.bold != l.bold and l.bold))
-        add_text(l, force)
+        add_text(l, starts_paragraph(prev, l, cur_u.paras[-1] if cur_u and cur_u.paras and para_open else ''))
         prev = l
     return Doc(title=title, commencement=commencement, units=units, endnotes=endnotes, pages=d.page_count)
+
+
+def starts_paragraph(prev: Line | None, l: Line, last_para: str) -> bool:
+    """Whether line l starts a new paragraph (else it continues last_para).
+
+    A numbered or lettered marker always starts one. On the same page a gap
+    wider than the body leading (about 12.5 pt) does. Across a page break the
+    text runs on unless the paragraph before ended a sentence and the new line
+    starts like a sentence, since page tops lose the vertical gap.
+    """
+    if prev is None or not last_para:
+        return True
+    if l.bold and not prev.bold:
+        return True
+    if MARK.match(l.text):
+        return True
+    if prev.page == l.page:
+        return l.y - prev.y > 15.5
+    return bool(re.search(r'[.:;—]["\']?$', last_para)) and bool(re.match(r'["(A-Z]', l.text))
 
 
 def para_open_body(u: Unit) -> bool:
