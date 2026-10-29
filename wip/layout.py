@@ -307,7 +307,7 @@ def starts_paragraph(prev: Line | None, l: Line, last_para: str) -> bool:
         return True
     if MARK.match(l.text):
         return True
-    if l.x < prev.x - 10:  # outdented tail ("is guilty of ...") after a list item
+    if l.page == prev.page and l.x < prev.x - 10:  # outdented tail ("is guilty of ...") after a list item
         return True
     if prev.page == l.page:
         return l.y - prev.y > 15.5
