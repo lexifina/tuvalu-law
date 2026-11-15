@@ -1,21 +1,36 @@
-# Tuvalu: law history
+# Tuvalu: law history in git
+
+The law of Tuvalu as a git history, once it can be built: one file per provision, one commit per version on the day it took effect, and the act that made each change as the commit's author. `git blame` will name the act behind every line; `git log` will list every change to a provision; picking a date will give the text in force that day.
 
 Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Tuvalu's national law, which global-law reads at `tuvalu/national/acts/`.
 
-**Paused, not yet law (on hold for permission).** Checked 2026-10-28. The official Tuvalu Legislation site (tuvalu-legislation.tv) has what a build needs: the 2008 and 2022 Revised Editions of every act and regulation as text PDFs with dates, and, in the 2022 edition, endnotes naming the amending act of each provision and its commencement. But its copyright notice says a user "may not transmit, distribute or commercialise the material without the permission of the Government of Tuvalu", and Tuvalu's Copyright Act (Cap. 40.24) has no exception for official texts. It will be built once the Government of Tuvalu gives permission.
+**What is in it now:** no law text. [`SOURCES.md`](SOURCES.md) records the official source, from Lexifina's register of world law sources (28 October 2026), and [`REPRODUCE.md`](REPRODUCE.md) says how these files were made. There is nothing yet to run git commands on, and global-law, which already lists Tuvalu, has no Tuvaluan text to search.
 
-This repository will hold the legislation of Tuvalu (TV) as a history: one file per provision and one commit per law taking effect, dated by the day it took force, with the law that made each change as the commit author. It follows the shared design of [lexifina/global-law](https://github.com/lexifina/global-law), which places it at `tv/` in the world tree.
+**Why there is none.** The copyright notice of Tuvalu Legislation Online, the official site, says: "A user may download, store in cache, display, print and copy the material in unaltered form only. A user may not transmit, distribute or commercialise the material without the permission of the Government of Tuvalu." Building is paused until the Government of Tuvalu gives that permission.
 
-**Status:** no law yet. This first commit records where the law of Tuvalu can be read and what a build would need.
+**What is planned:** the Constitution and every act and regulation, with the versions the site keeps for each: the Revised Editions of the laws in force at 31 December 2008 and at 31 December 2022, as PDFs with a text layer, and the acts made since. The 2022 edition's endnotes name the act that amended each provision and the day it commenced, so each change can be credited to that act on that day.
 
-**Can it be built?** Past versions by date are online, but with no API or bulk download, so a build has to read the site page by page.
+The laws are in English, as the site publishes them.
 
-**This commit is a placeholder.** The first real build must replace this history from scratch and force-push. It must never append law commits on top of it: they are dated by when each law took effect, often decades earlier, so dates in `main` would run backwards and break every on-date lookup. Builders should refuse to append when the root commit is this placeholder (its subject ends "sources, before any law").
+## Sources
 
-**Official sources**
+| Source | Kind | Past versions | Notes |
+| --- | --- | --- | --- |
+| [Tuvalu Legislation Online](https://www.tuvalu-legislation.tv) (Government of Tuvalu) | Official legislation site: the Revised Editions of 2008 and 2022 and later acts | yes, a version history per act and regulation | No API or bulk download; copyright is retained by the Government of Tuvalu, and the material may not be redistributed without its permission |
 
-- [Tuvalu Legislation](https://www.tuvalu-legislation.tv)
+## Licence
 
-All sources, with their status, are in [SOURCES.md](SOURCES.md). How these files were made is in [REPRODUCE.md](REPRODUCE.md).
+See [`LICENSE`](LICENSE). There is no legal text here; it will be added only with the Government of Tuvalu's permission. Lexifina's own contributions (the documentation and the tables) are CC0 1.0.
 
-This repository describes sources; it is not legal advice and holds no legal text yet.
+No AI wrote legal text. The sources register was compiled by Claude Code running Claude Opus 5.5, with research sub-agents on the same model; no AI model runs when these files are built (see [`REPRODUCE.md`](REPRODUCE.md)).
+
+## More
+
+From [lexifina/global-law](https://github.com/lexifina/global-law):
+
+- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): every feature, and what every corpus must support (`git blame`, `law.py`, the MCP tools)
+- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): questions and answers · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): proposing changes · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): the MCP server · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): how it was built · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
+- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): how current each corpus is · [Monitoring](https://github.com/lexifina/global-law/tree/main/monitoring): whether updates are running · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): how each official source is watched for changes
+- [performance/](https://github.com/lexifina/global-law/tree/main/performance): how fast the tools are, measured
+- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): charts and bridges across the world's law
+- [Vulnerabilities](https://github.com/lexifina/global-law/tree/main/vulnerabilities): mistakes in legislation as published
