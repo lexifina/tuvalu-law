@@ -24,6 +24,14 @@ See [`LICENSE`](LICENSE). There is no legal text here; it will be added only wit
 
 No AI wrote legal text. The sources register was compiled by Claude Code running Claude Opus 5.5, with research sub-agents on the same model; no AI model runs when these files are built (see [`REPRODUCE.md`](REPRODUCE.md)).
 
+## How it is checked
+
+- [vulnerabilities/](vulnerabilities/): possible drafting mistakes in this law, found by global-law's detectors and checked by hand. Not run yet.
+
+## Visualisations
+
+- [visualisations/](visualisations/): charts drawn from this repository. Not drawn yet.
+
 ## More
 
 From [lexifina/global-law](https://github.com/lexifina/global-law):
